@@ -4,9 +4,8 @@ import io.zkz.mc.gametools.injection.inject
 import io.zkz.mc.gametools.scoreboard.ScoreboardService
 import io.zkz.mc.minigamemanager.minigame.MinigameService
 import io.zkz.mc.minigamemanager.scoreboard.MinigameScoreboard
-import io.zkz.mc.minigamemanager.state.AliveDeadTrackerMixin
-import io.zkz.mc.minigamemanager.state.ITracksAliveDead
-import io.zkz.mc.minigamemanager.state.impl.ParentMinigameState
+import io.zkz.mc.minigamemanager.minigame.AliveDeadTrackerMixin
+import io.zkz.mc.minigamemanager.minigame.ITracksAliveDead
 import io.zkz.mc.uhc.scoreboard.UhcMinigameScoreboard
 import org.bukkit.entity.Player
 

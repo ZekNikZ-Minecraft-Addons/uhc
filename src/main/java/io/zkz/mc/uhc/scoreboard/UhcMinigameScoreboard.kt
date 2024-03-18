@@ -10,7 +10,7 @@ import io.zkz.mc.gametools.util.WorldSyncUtils
 import io.zkz.mc.gametools.util.mm
 import io.zkz.mc.minigamemanager.minigame.MinigameService
 import io.zkz.mc.minigamemanager.scoreboard.MinigameScoreboard
-import io.zkz.mc.minigamemanager.scoreboard.StandardMinigameScoreboard
+import io.zkz.mc.minigamemanager.scoreboard.impl.StandardMinigameScoreboard
 import io.zkz.mc.uhc.game.UhcGame
 import io.zkz.mc.uhc.settings.SettingsManager
 import io.zkz.mc.uhc.settings.enums.TeamStatus
