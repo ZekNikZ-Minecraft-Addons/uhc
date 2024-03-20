@@ -111,7 +111,7 @@ class UhcEventsListenter(
             if (settingsManager.compassBehavior.value != CompassBehavior.NORMAL) {
                 var location: Location? = null
                 var minDistance = Double.MAX_VALUE
-                for (onlinePlayerUUID in UhcService.alivePlayers) {
+                for (onlinePlayerUUID in minigameService.currentRound.alivePlayers) {
                     val onlinePlayer = Bukkit.getPlayer(onlinePlayerUUID)
                     if (onlinePlayer == null || onlinePlayer.uniqueId == player.uniqueId) {
                         continue

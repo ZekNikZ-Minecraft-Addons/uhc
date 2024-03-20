@@ -11,7 +11,6 @@ import io.zkz.mc.gametools.util.mm
 import io.zkz.mc.minigamemanager.minigame.MinigameService
 import io.zkz.mc.minigamemanager.scoreboard.MinigameScoreboard
 import io.zkz.mc.minigamemanager.scoreboard.impl.StandardMinigameScoreboard
-import io.zkz.mc.uhc.game.UhcService
 import io.zkz.mc.uhc.settings.SettingsManager
 import io.zkz.mc.uhc.settings.enums.TeamStatus
 import org.bukkit.entity.Player
@@ -51,13 +50,13 @@ object UhcMinigameScoreboard : MinigameScoreboard, InjectionComponent {
         if (settingsManager.teamGame.value == TeamStatus.TEAM_GAME) {
             scoreboard.addEntry(
                 ComputableValueEntry("<legacy_green><bold>Alive teams:</bold></legacy_green> <value>") {
-                    UhcService.aliveTeams.size
+                    minigameService.currentRound.aliveTeams.size
                 },
             )
         }
         scoreboard.addEntry(
             ComputableValueEntry("<legacy_green><bold>Alive players:</bold></legacy_green> <value>") {
-                UhcService.alivePlayers.size
+                minigameService.currentRound.alivePlayers.size
             },
         )
 

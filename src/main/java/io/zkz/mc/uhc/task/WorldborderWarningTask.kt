@@ -7,8 +7,6 @@ import io.zkz.mc.gametools.util.BukkitUtils.forEachPlayer
 import io.zkz.mc.gametools.util.WorldSyncUtils
 import io.zkz.mc.gametools.util.mm
 import io.zkz.mc.minigamemanager.task.MinigameTask
-import io.zkz.mc.uhc.game.UHCRound
-import io.zkz.mc.uhc.game.UhcService
 import io.zkz.mc.uhc.game.uhcRound
 import org.bukkit.entity.Player
 import kotlin.math.abs
