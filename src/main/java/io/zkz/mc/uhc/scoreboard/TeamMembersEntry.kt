@@ -3,7 +3,7 @@ package io.zkz.mc.uhc.scoreboard
 import io.zkz.mc.gametools.scoreboard.entry.ScoreboardEntry
 import io.zkz.mc.gametools.team.GameTeam
 import io.zkz.mc.gametools.util.mm
-import io.zkz.mc.uhc.game.UhcGame
+import io.zkz.mc.uhc.game.UhcService
 import net.kyori.adventure.text.Component
 import kotlin.math.ceil
 
@@ -15,7 +15,7 @@ class TeamMembersEntry(
         team.onlineMembers
             .sortedBy { it.name }
             .forEach {
-                if (UhcGame.isAlive(it)) {
+                if (UhcService.isAlive(it)) {
                     scoreboard.setLine(
                         pos + i,
                         mm(

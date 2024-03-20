@@ -7,7 +7,7 @@ import io.zkz.mc.gametools.util.BukkitUtils.forEachPlayer
 import io.zkz.mc.gametools.util.WorldSyncUtils
 import io.zkz.mc.gametools.util.mm
 import io.zkz.mc.minigamemanager.task.MinigameTask
-import io.zkz.mc.uhc.game.UhcGame
+import io.zkz.mc.uhc.game.UhcService
 import org.bukkit.entity.Player
 import kotlin.math.abs
 import kotlin.math.max
@@ -29,12 +29,12 @@ class WorldborderWarningTask : MinigameTask(20, 20) {
 
         forEachPlayer { player: Player ->
             val worldBorderRadius: Double = WorldSyncUtils.worldBorderSize / 2.0
-            val worldBorderSpeed: Double = UhcGame.currentWorldBorderSpeed
+            val worldBorderSpeed: Double = UhcService.currentWorldBorderSpeed
             val x = player.location.x
             val z = player.location.z
             val playerRadius = max(abs(x), abs(z))
 
-            if (playerRadius <= UhcGame.currentWorldBorderTarget / 2) {
+            if (playerRadius <= UhcService.currentWorldBorderTarget / 2) {
                 actionBarService.removeMessage(player.uniqueId, "wbWarning1")
                 actionBarService.removeMessage(player.uniqueId, "wbWarning2")
                 return@forEachPlayer

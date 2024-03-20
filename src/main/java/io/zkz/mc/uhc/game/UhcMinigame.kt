@@ -35,7 +35,7 @@ class UhcMinigame(
     private fun buildConfig() {
         minigameService.config = MinigameConfig(
             name = "UHC",
-            firstGameSpecificState = { UhcGame },
+            firstGameSpecificState = { UhcService },
             shouldAutomaticallyShowRules = false,
             shouldShowScoreSummary = false,
             isTeamGame = settingsManager.teamGame.value == TeamStatus.TEAM_GAME,

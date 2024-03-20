@@ -7,7 +7,7 @@ import io.zkz.mc.gametools.util.Chat
 import io.zkz.mc.gametools.util.ChatType
 import io.zkz.mc.gametools.util.mm
 import io.zkz.mc.minigamemanager.task.MinigameTask
-import io.zkz.mc.uhc.game.UhcGame
+import io.zkz.mc.uhc.game.UhcService
 import io.zkz.mc.uhc.settings.SettingsManager
 import io.zkz.mc.uhc.settings.enums.TeamStatus
 import net.kyori.adventure.text.Component
@@ -26,9 +26,9 @@ class GameOverEffectsTask : MinigameTask(20, 20) {
     private var fireworks = 5
     private val title: Component = mm("<legacy_gold><bold>GAME OVER")
     private val subtitle: Component = if (settingsManager.teamGame.value == TeamStatus.TEAM_GAME) {
-        mm("<0> <legacy_aqua>wins!", UhcGame.aliveTeams.first().displayName)
+        mm("<0> <legacy_aqua>wins!", UhcService.aliveTeams.first().displayName)
     } else {
-        mm("<legacy_aqua><0> wins!", UhcGame.onlineAlivePlayers.first())
+        mm("<legacy_aqua><0> wins!", UhcService.onlineAlivePlayers.first())
     }
 
     init {
@@ -46,7 +46,7 @@ class GameOverEffectsTask : MinigameTask(20, 20) {
             this.cancel()
             return
         }
-        UhcGame.onlineAlivePlayers.forEach { p ->
+        UhcService.onlineAlivePlayers.forEach { p ->
             // Spawn the Firework, get the FireworkMeta.
             val entity = p.world.spawnEntity(p.location, EntityType.FIREWORK) as Firework
             val fireworkMeta = entity.fireworkMeta
