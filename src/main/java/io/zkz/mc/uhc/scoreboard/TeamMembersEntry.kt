@@ -1,21 +1,25 @@
 package io.zkz.mc.uhc.scoreboard
 
+import io.zkz.mc.gametools.injection.InjectionComponent
+import io.zkz.mc.gametools.injection.inject
 import io.zkz.mc.gametools.scoreboard.entry.ScoreboardEntry
 import io.zkz.mc.gametools.team.GameTeam
 import io.zkz.mc.gametools.util.mm
-import io.zkz.mc.uhc.game.UhcService
+import io.zkz.mc.minigamemanager.minigame.MinigameService
 import net.kyori.adventure.text.Component
 import kotlin.math.ceil
 
 class TeamMembersEntry(
     private val team: GameTeam,
-) : ScoreboardEntry() {
+) : ScoreboardEntry(), InjectionComponent {
+    private val minigameService by inject<MinigameService>()
+
     override fun render(pos: Int) {
         var i = 0
         team.onlineMembers
             .sortedBy { it.name }
             .forEach {
-                if (UhcService.isAlive(it)) {
+                if (minigameService.currentRound.isAlive(it)) {
                     scoreboard.setLine(
                         pos + i,
                         mm(

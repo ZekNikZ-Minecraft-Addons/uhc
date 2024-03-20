@@ -15,6 +15,4 @@ class UhcService(
     private val scoreboardService: ScoreboardService,
     private val minigameService: MinigameService,
 ) : PluginService<UhcPlugin>(plugin) {
-    val currentWorldBorderSpeed: Double = TODO()
-    val currentWorldBorderTarget: Double = TODO()
 }
